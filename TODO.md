@@ -11,7 +11,6 @@
 - [ ] Dron: czy robi zdjęcia z drona i chce to oferować? (kategoria „Z lotu ptaka”)
 - [ ] Czas i forma oddania zdjęć, dojazd, zaliczka → FAQ / oferta
 - [ ] Czy sesje (narzeczeńska, gender reveal, portret) mają osobny cennik?
-- [ ] Zdjęcie do karty „Sesje okolicznościowe” (index + oferta — teraz puste pole; najlepiej poziome albo z miejscem nad głowami)
 - [ ] Więcej zdjęć do portfolio (20–40), ewentualnie opinie klientów
 - [ ] Akceptacja tekstów i wyglądu
 
