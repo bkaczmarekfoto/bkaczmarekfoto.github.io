@@ -27,7 +27,7 @@
 | Pełna nazwa prawna | ❓ |
 | Forma prawna / właściciel | ❓ (JDG? działalność nierejestrowana?) |
 | NIP / REGON | ❓ |
-| Adres * | ❓ — potrzebny tylko do polityki prywatności (nie pokazujemy na stronie) |
+| Adres * | ul. Topolowa 21D/2, 66-210 Zbąszynek ✅ — tylko w polityce prywatności (nie pokazujemy na stronie) |
 | Telefon(y) * | +48 694 609 476 ✅ |
 | E-mail * | foto.bkaczmarek@gmail.com ✅ (w Canvie był foto.bkaczmarek@interia.pl — przyjęto gmail, wg Kuby) |
 | Godziny otwarcia * | N/D — zamiast tego kalendarz wolnych terminów |
@@ -105,7 +105,7 @@ Struktura: kilka podstron (header/stopka jak w Filar).
 
 | Pole | Wartość |
 |---|---|
-| Administrator danych * | Bartosz Kaczmarek, ❓ adres, ❓ NIP |
+| Administrator danych * | Bartosz Kaczmarek, ul. Topolowa 21D/2, 66-210 Zbąszynek ✅, ❓ NIP (jeśli działalność) |
 | Formularz — jakie dane zbieramy | imię, e-mail lub telefon, data, rodzaj zdjęć, pakiet, wiadomość |
 | Cookies / analityka | brak |
 | Mapa Google | N/D |

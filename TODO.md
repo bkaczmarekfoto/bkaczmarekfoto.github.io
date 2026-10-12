@@ -3,7 +3,8 @@
 ## Od Bartka
 - [ ] Tajny adres iCal kalendarza → sekret `GCAL_ICS_URL` (i pierwsze „Wolne” w kalendarzu)
 - [x] EmailJS: klucze w `assets/js/booking.js`
-- [ ] Dane administratora do polityki prywatności (adres, ew. NIP)
+- [x] Adres do polityki prywatności
+- [ ] NIP — jeśli Bartek prowadzi działalność gospodarczą (polityka prywatności)
 - [ ] Linki: Facebook, Instagram, TikTok (który profil to „z góry”, który „z dołu”?) → stopka + kontakt + JSON-LD `sameAs`
 - [ ] Obszar działania (miasto, dojazd) → teksty + SEO + JSON-LD `areaServed`
 - [ ] Zgody na publikację wizerunku osób ze zdjęć (zwłaszcza dziecko — komunia)
