@@ -87,7 +87,7 @@ Struktura: kilka podstron (header/stopka jak w Filar).
 | Mini | 3 h | 300–400 zł | 50–60 |
 | Standard | 5 h | 500–650 zł | 80–120 |
 | Maxi | do 8 h | 700–850 zł | 150–250 |
-| Nadgodziny | — | 150–200 zł / h | płatne przy rozliczeniu |
+| Nadgodziny | — | 150 zł / h (stała stawka, potwierdzone 12.10.2026) | płatne przy rozliczeniu |
 
 ❓ Czas oddania zdjęć, forma przekazania (galeria online? pendrive?), koszt dojazdu, zaliczka.
 
