@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# TODO po ustaleniu domeny: Sitemap: https://DOMENA/sitemap.xml

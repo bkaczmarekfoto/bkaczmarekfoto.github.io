@@ -1,0 +1,94 @@
+# Publikacja strony na GitHub Pages + co godzinę odświeżenie wolnych terminów
+# z Kalendarza Google (sekret GCAL_ICS_URL = „Tajny adres w formacie iCal”).
+#
+# Ustawienia repo: Settings → Pages → Source: „GitHub Actions”
+#                  Settings → Secrets and variables → Actions → New secret: GCAL_ICS_URL
+
+name: Strona i wolne terminy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 * * * *'   # co godzinę (GitHub potrafi opóźnić o kilka–kilkanaście minut)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.decide.outputs.deploy }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Pobierz kalendarz i zbuduj availability.json
+        env:
+          GCAL_ICS_URL: ${{ secrets.GCAL_ICS_URL }}
+        run: |
+          if [ -z "$GCAL_ICS_URL" ]; then
+            echo "::warning::Brak sekretu GCAL_ICS_URL — zostają dotychczasowe (przykładowe) dane."
+          else
+            node scripts/build-availability.mjs
+          fi
+
+      - name: Zapisz zmiany w repozytorium
+        id: commit
+        run: |
+          if git diff --quiet -- assets/data/availability.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Bez zmian w terminach."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/data/availability.json
+            git commit -m "chore: aktualizacja wolnych terminów"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Czy publikować?
+        id: decide
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ] || [ "${{ steps.commit.outputs.changed }}" = "true" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Przygotuj pliki strony (bez materiałów roboczych)
+        if: steps.decide.outputs.deploy == 'true'
+        run: |
+          mkdir _site
+          rsync -a ./ _site/ \
+            --exclude '.git*' --exclude '.github' --exclude '_site' \
+            --exclude '.claude' --exclude 'dane' --exclude 'scripts' --exclude '*.md'
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.decide.outputs.deploy == 'true'
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
