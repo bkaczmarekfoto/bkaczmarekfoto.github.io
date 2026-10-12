@@ -12,10 +12,10 @@
  */
 
 (function () {
-  /* ── EmailJS — uzupełnić po założeniu konta na foto.bkaczmarek@gmail.com ── */
-  const EMAILJS_PUBLIC_KEY  = 'TODO_PUBLIC_KEY';
-  const EMAILJS_SERVICE_ID  = 'TODO_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'TODO_TEMPLATE_ID';
+  /* ── EmailJS (konto foto.bkaczmarek@gmail.com) — klucz publiczny jest z założenia jawny ── */
+  const EMAILJS_PUBLIC_KEY  = 'L-NsPKnyrAZ_tbmKh';
+  const EMAILJS_SERVICE_ID  = 'service_csp0g74';
+  const EMAILJS_TEMPLATE_ID = 'template_cmvl07e';
   const EMAILJS_SDK = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js';
 
   const TYPES = [

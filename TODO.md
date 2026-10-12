@@ -2,7 +2,7 @@
 
 ## Od Bartka
 - [ ] Tajny adres iCal kalendarza → sekret `GCAL_ICS_URL` (i pierwsze „Wolne” w kalendarzu)
-- [ ] Konto EmailJS na foto.bkaczmarek@gmail.com (albo dostęp dla Kuby) → Public Key, Service ID, Template ID do `assets/js/booking.js`
+- [x] EmailJS: klucze w `assets/js/booking.js`
 - [ ] Dane administratora do polityki prywatności (adres, ew. NIP)
 - [ ] Linki: Facebook, Instagram, TikTok (który profil to „z góry”, który „z dołu”?) → stopka + kontakt + JSON-LD `sameAs`
 - [ ] Obszar działania (miasto, dojazd) → teksty + SEO + JSON-LD `areaServed`
