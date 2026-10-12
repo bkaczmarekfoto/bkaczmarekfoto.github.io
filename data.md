@@ -47,7 +47,7 @@
 | Domena istniejąca | ❓ |
 | Domena docelowa * | ❓ |
 | Poczta na domenie | nie — Gmail |
-| Hosting DEV | GitHub Pages (Pages source: GitHub Actions) ✅ |
+| Hosting DEV | GitHub Pages (Pages source: GitHub Actions) → https://bkaczmarekfoto.github.io/ ✅ |
 | Hosting PROD | GitHub Pages + CNAME albo home.pl ❓ |
 | SSL | automatyczny |
 
@@ -115,7 +115,7 @@ Struktura: kilka podstron (header/stopka jak w Filar).
 | Pole | Wartość |
 |---|---|
 | Stack | HTML + CSS + Vanilla JS ✅ |
-| Repozytorium | **BKaczmarek** ✅ (GitHub — ❓ konto/widoczność; dane kalendarza w repo to tylko daty) |
+| Repozytorium | **bkaczmarekfoto/bkaczmarekfoto.github.io** ✅ publiczne (organizacja GitHub `bkaczmarekfoto`) |
 | Kalendarz | dedykowane konto Google Bartka ✅; sekret `GCAL_ICS_URL` w repo |
 | EmailJS | ❓ konto na foto.bkaczmarek@gmail.com (Service + Template + Public Key) |
 

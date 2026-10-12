@@ -5,7 +5,8 @@ Wspólny standard KubaBuba: `D:\DEV\KUBABUBA_WORK\CLAUDE.md`. Tu tylko to, co sp
 ## Klient
 - **Bartosz Kaczmarek** — młody fotograf eventowy: reportaż z imprez okolicznościowych (urodziny, osiemnastki, komunie), sesje narzeczeńskie, gender reveal, portrety.
 - Tel. +48 694 609 476 · foto.bkaczmarek@gmail.com (dedykowane konto Google — kalendarz + docelowo EmailJS).
-- Repozytorium: **BKaczmarek** (branch `main`).
+- Repozytorium: **bkaczmarekfoto/bkaczmarekfoto.github.io** (organizacja GitHub `bkaczmarekfoto`, właściciel: konto Kuby commitpanic; branch `main`).
+- Strona (DEV, docelowo do czasu własnej domeny): https://bkaczmarekfoto.github.io/
 - Brief i otwarte kwestie: `data.md`. Materiały źródłowe (logo, zdjęcia z Canvy): `dane/` — nie trafia do repo/na stronę.
 - Zawód nieregulowany — można pisać sprzedażowo, ale bez przesady i bez obietnic, których Bartek nie potwierdził (np. dron, czas oddania zdjęć).
 

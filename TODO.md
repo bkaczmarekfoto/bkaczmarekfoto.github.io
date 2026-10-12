@@ -15,7 +15,7 @@
 - [ ] Akceptacja tekstów i wyglądu
 
 ## Technika
-- [ ] Repozytorium `BKaczmarek` na GitHubie (lokalnie zainicjowane), Pages source = GitHub Actions
+- [x] Repozytorium `bkaczmarekfoto/bkaczmarekfoto.github.io`, Pages (GitHub Actions), sekret `GCAL_ICS_URL`
 - [ ] Domena → `CNAME`, `og:url`, `og:image` (bezwzględny), `canonical`, `sitemap.xml`, `robots.txt` z adresem sitemapy
 - [ ] Po podłączeniu kalendarza usunąć `"demo": true` (zrobi to pierwszy przebieg workflow)
 - [ ] EmailJS: ograniczyć domeny w Account → Security
