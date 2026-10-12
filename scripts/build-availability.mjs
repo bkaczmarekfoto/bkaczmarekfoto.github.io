@@ -9,7 +9,7 @@
  * Do pliku trafiają wyłącznie daty (i ewentualnie godziny z wydarzenia „Wolne”) —
  * bez tytułów, opisów i miejsc innych wydarzeń.
  *
- * Bez zależności — wystarczy Node 18+.
+ * Bez zależności — wystarczy Node 18+ (w GitHub Actions: Node 24).
  *
  * Użycie:
  *   GCAL_ICS_URL="https://calendar.google.com/calendar/ical/.../basic.ics" node scripts/build-availability.mjs

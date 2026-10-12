@@ -14,6 +14,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: write
   pages: write
   id-token: write
@@ -28,11 +29,11 @@ jobs:
     outputs:
       deploy: ${{ steps.decide.outputs.deploy }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Pobierz kalendarz i zbuduj availability.json
         env:
@@ -75,9 +76,8 @@ jobs:
           rsync -a ./ _site/ \
             --exclude '.git*' --exclude '.github' --exclude '_site' \
             --exclude '.claude' --exclude 'dane' --exclude 'scripts' --exclude '*.md'
-          touch _site/.nojekyll
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         if: steps.decide.outputs.deploy == 'true'
         with:
           path: _site
@@ -91,4 +91,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
