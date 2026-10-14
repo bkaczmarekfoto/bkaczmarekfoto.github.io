@@ -1,7 +1,8 @@
 # TODO
 
 ## Od Bartka
-- [ ] Tajny adres iCal kalendarza → sekret `GCAL_ICS_URL` (i pierwsze „Wolne” w kalendarzu)
+- [x] Tajny adres iCal kalendarza → sekret `GCAL_ICS_URL`
+- [ ] Ustalić z Bartkiem, czy ma być wolny codziennie (teraz 7 cotygodniowych „Wolne” = każdy dzień) i że rezerwacje wpisuje w TYM SAMYM kalendarzu
 - [x] EmailJS: klucze w `assets/js/booking.js`
 - [x] Adres do polityki prywatności
 - [ ] NIP — jeśli Bartek prowadzi działalność gospodarczą (polityka prywatności)
@@ -18,6 +19,7 @@
 ## Technika
 - [x] Repozytorium `bkaczmarekfoto/bkaczmarekfoto.github.io`, Pages (GitHub Actions), sekret `GCAL_ICS_URL`
 - [ ] Domena → `CNAME`, `og:url`, `og:image` (bezwzględny), `canonical`, `sitemap.xml`, `robots.txt` z adresem sitemapy
-- [ ] Po podłączeniu kalendarza usunąć `"demo": true` (zrobi to pierwszy przebieg workflow)
+- [x] Kalendarz podłączony (dane już nie są przykładowe)
+- [ ] (opcjonalnie, odłożone) Apps Script na koncie Bartka + fine-grained token GitHub (README → „Natychmiastowa aktualizacja”)
 - [ ] EmailJS: ograniczyć domeny w Account → Security
 - [ ] Lighthouse na produkcji

@@ -17,11 +17,12 @@ Wspólny standard KubaBuba: `D:\DEV\KUBABUBA_WORK\CLAUDE.md`. Tu tylko to, co sp
 - **Kalendarz wolnych terminów** (decyzja Kuby 12.10.2026):
   - Kalendarz Google jest tylko źródłem danych. Bartek oznacza **wolne** dni wydarzeniem „Wolne”/„Wolny”/„Dostępny” (całodniowe lub z godzinami, może być cykliczne). Dzień wolny = ma znacznik i nie ma innego blokującego wydarzenia.
   - `scripts/build-availability.mjs` (Node, zero zależności, parser iCal z RRULE/EXDATE/RECURRENCE-ID) → `assets/data/availability.json` (tylko daty + godziny ze znacznika).
-  - `.github/workflows/pages.yml`: co godzinę pobiera tajny adres iCal (sekret `GCAL_ICS_URL`), commituje JSON tylko przy zmianie (+ heartbeat co 7 dni, żeby GitHub nie wyłączył crona po 60 dniach), deployuje Pages przez Actions (bez `dane/`, `scripts/`, `*.md`).
+  - `.github/workflows/pages.yml`: co 15 min (realnie rzadziej — GitHub pomija część przebiegów) pobiera tajny adres iCal (sekret `GCAL_ICS_URL`), commituje JSON tylko przy zmianie (+ heartbeat co 7 dni, żeby GitHub nie wyłączył crona po 60 dniach), deployuje Pages przez Actions (bez `dane/`, `scripts/`, `*.md`).
   - Front: `assets/js/calendar.js` — zielony dzień z „+” → zdarzenie `booking:open` → `assets/js/booking.js` otwiera modal z formularzem (data wpisana; imię; e-mail **lub** telefon; rodzaj zdjęć; pakiet; RODO; honeypot `website`). EmailJS SDK ładowany leniwie przy otwarciu modala.
   - Rezerwacja NIE jest automatyczna — Bartek dostaje maila i sam nanosi zmiany w kalendarzu.
+  - Cron GitHuba przy „co godzinę” odpalał się realnie co 4–8 h → od 14.10.2026 `*/15`. Opcjonalnie (na razie NIE wdrożone, decyzja Kuby): Google Apps Script na koncie Bartka (`scripts/apps-script/Synchronizacja.gs`): wyzwalacz kalendarza → po 3 min `workflow_dispatch` (fine-grained PAT, tylko Actions: write na tym repo, we Właściwościach skryptu). Instrukcja w README.
+  - Diagnoza: ręczny workflow z `debug=true` (bez tytułów; przy „inne” bez godzin — log jest publiczny).
 - Test parsera: `node scripts/build-availability.mjs --ics scripts/test/przyklad.ics --today 2026-10-12 --out <plik> --force`.
-- Obecny `availability.json` to dane przykładowe (`"demo": true`) — kalendarz pokazuje ostrzeżenie.
 
 ## Otwarte kwestie
 Patrz `TODO.md` i pola ❓ w `data.md`.
