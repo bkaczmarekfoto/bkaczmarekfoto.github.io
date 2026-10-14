@@ -1,7 +1,7 @@
 /**
  * calendar.js — kalendarz wolnych terminów
  *
- * Dane: assets/data/availability.json, generowany co godzinę przez GitHub Actions
+ * Dane: assets/data/availability.json, generowany przez GitHub Actions (harmonogram co 15 min)
  * (scripts/build-availability.mjs) z prywatnego adresu iCal Kalendarza Google.
  * Wolne są tylko dni, które Bartek oznaczył wydarzeniem „Wolne” (i nie ma w nich
  * innego wydarzenia). W pliku są wyłącznie daty — bez tytułów, miejsc i opisów.

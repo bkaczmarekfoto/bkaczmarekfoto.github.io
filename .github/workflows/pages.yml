@@ -1,4 +1,4 @@
-# Publikacja strony na GitHub Pages + co godzinę odświeżenie wolnych terminów
+# Publikacja strony na GitHub Pages + odświeżanie wolnych terminów co 15 minut
 # z Kalendarza Google (sekret GCAL_ICS_URL = „Tajny adres w formacie iCal”).
 #
 # Ustawienia repo: Settings → Pages → Source: „GitHub Actions”
@@ -10,7 +10,10 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '17 * * * *'   # co godzinę (GitHub potrafi opóźnić o kilka–kilkanaście minut)
+    # Co 15 min — GitHub pomija/opóźnia część przebiegów z harmonogramu (przy „co godzinę”
+    # realnie było co 4–8 h), więc częstsze próby skracają opóźnienie. Przebieg bez zmian
+    # w kalendarzu niczego nie commituje ani nie publikuje.
+    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       debug:
