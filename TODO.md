@@ -20,6 +20,7 @@
 - [x] Repozytorium `bkaczmarekfoto/bkaczmarekfoto.github.io`, Pages (GitHub Actions), sekret `GCAL_ICS_URL`
 - [ ] Domena → `CNAME`, `og:url`, `og:image` (bezwzględny), `canonical`, `sitemap.xml`, `robots.txt` z adresem sitemapy
 - [x] Kalendarz podłączony (dane już nie są przykładowe)
-- [ ] (opcjonalnie, odłożone) Apps Script na koncie Bartka + fine-grained token GitHub (README → „Natychmiastowa aktualizacja”)
+- [x] Apps Script na koncie Bartka + fine-grained token GitHub (wdrożone 14.10.2026)
+- [ ] Odnowić token GitHub dla Apps Script przed wygaśnięciem (ok. październik 2027) — nowy token → Właściwości skryptu `GITHUB_TOKEN`
 - [ ] EmailJS: ograniczyć domeny w Account → Security
 - [ ] Lighthouse na produkcji

@@ -58,7 +58,7 @@ Tajny adres daje dostęp do pełnej treści kalendarza — nie wklejać go nigdz
 
 ### Natychmiastowa aktualizacja (Google Apps Script)
 
-**Na razie nie wdrożone** — opcja na później. Harmonogram GitHub Actions nie gwarantuje terminów (przy „co godzinę” odpalał się co 4–8 godzin; teraz jest co 15 minut, ale GitHub dalej pomija część przebiegów). Natychmiastową aktualizację daje skrypt `scripts/apps-script/Synchronizacja.gs`: przy każdej zmianie wydarzenia odczekuje 3 minuty (kilka zmian = jedna aktualizacja) i uruchamia workflow przez API GitHuba. Harmonogram zostaje jako zapas.
+**Wdrożone 14.10.2026** (konto foto.bkaczmarek@gmail.com, projekt „Synchronizacja strony”). Harmonogram GitHub Actions nie gwarantuje terminów (przy „co godzinę” odpalał się co 4–8 godzin, przy „co 15 minut” przez kilka godzin wcale), dlatego aktualizację wyzwala skrypt `scripts/apps-script/Synchronizacja.gs`: przy każdej zmianie wydarzenia odczekuje 3 minuty (kilka zmian = jedna aktualizacja) i uruchamia workflow przez API GitHuba. Harmonogram zostaje jako zapas.
 
 **1. Token GitHub** (na koncie, które zarządza organizacją `bkaczmarekfoto`):
 GitHub → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token:
