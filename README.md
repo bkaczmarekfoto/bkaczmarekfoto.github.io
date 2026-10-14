@@ -80,7 +80,7 @@ Jeśli organizacja wymaga zatwierdzania tokenów: Organization → Settings → 
 Od tej pory zmiana w kalendarzu jest na stronie po ok. 4–5 minutach (3 min oczekiwania + ok. 1 min workflow). Błąd (np. wygasły token) = mail od Google na foto.bkaczmarek@gmail.com; strona wtedy dalej aktualizuje się z harmonogramu.
 
 ### Uwagi
-- Workflow commituje `availability.json` tylko przy zmianie oraz raz na 7 dni (heartbeat), żeby GitHub nie wyłączył harmonogramu po 60 dniach bez aktywności. Jeśli dane są starsze niż 3 dni, kalendarz na stronie pokazuje ostrzeżenie.
+- Workflow commituje `availability.json` tylko przy zmianie oraz raz na 7 dni (heartbeat), żeby GitHub nie wyłączył harmonogramu po 60 dniach bez aktywności. Strona nie pokazuje daty aktualizacji (zmienia się tylko przy commicie, więc myliłaby). Jeśli plik nie był zapisany od ponad 10 dni (synchronizacja padła), kalendarz pokazuje ostrzeżenie „może być nieaktualny”.
 - Ręczne uruchomienie workflow z opcją **debug** wypisuje w logu strukturę wydarzeń (typ, daty, powtarzanie) — bez tytułów, a przy wydarzeniach innych niż „Wolne” bez godzin (log publicznego repo jest jawny).
 - Strona czyta **tylko jeden kalendarz** (ten, z którego jest tajny adres iCal). Rezerwacje wpisane w innym kalendarzu nie blokują dni.
 - Błąd pobierania (np. zresetowany adres) = czerwony workflow + mail z GitHuba; strona pokazuje ostatnie poprawne dane.

@@ -30,7 +30,7 @@ import { dirname } from 'node:path';
 
 const TZ = 'Europe/Warsaw';
 const MARKER = /^\s*(wolne|wolny|wolna|dostepne|dostepny|dostepna)\b/;
-const HEARTBEAT_DAYS = 7; // zapisz plik co najmniej raz na tydzień (strona wykrywa zastój po 9 dniach)
+const HEARTBEAT_DAYS = 7; // zapisz plik co najmniej raz na tydzień (strona ostrzega o zastoju po 10 dniach)
 
 /* ── CLI ─────────────────────────────────────────────────── */
 const args = process.argv.slice(2);

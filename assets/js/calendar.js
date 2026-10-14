@@ -12,7 +12,10 @@
 
 (function () {
   const DATA_URL   = 'assets/data/availability.json';
-  const STALE_DAYS = 3;
+  // Plik zapisuje się przy zmianie terminów i kontrolnie co 7 dni — starszy niż 10 dni
+  // oznacza, że synchronizacja nie działa. Daty aktualizacji nie pokazujemy: zmienia się
+  // tylko przy commicie, więc wprowadzałaby w błąd.
+  const STALE_DAYS = 10;
   const MONTHS = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec',
                   'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
   const MONTHS_GEN = ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca', 'lipca',
@@ -92,11 +95,10 @@
     if (data.demo) {
       meta.classList.add('is-demo');
       meta.textContent = 'Dane przykładowe — kalendarz nie jest jeszcze podłączony.';
-    } else if (data.generated) {
-      const gen = new Date(data.generated);
-      const stale = (Date.now() - gen.getTime()) / 864e5 > STALE_DAYS;
-      meta.textContent = `Aktualizacja: ${gen.toLocaleString('pl-PL', { timeZone: 'Europe/Warsaw', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' })}.`
-        + (stale ? ' Kalendarz może być nieaktualny — potwierdź termin telefonicznie.' : '');
+    } else if (data.generated && (Date.now() - new Date(data.generated).getTime()) / 864e5 > STALE_DAYS) {
+      meta.textContent = 'Kalendarz może być nieaktualny — potwierdź termin telefonicznie.';
+    } else {
+      meta.hidden = true;
     }
 
     function draw() {
