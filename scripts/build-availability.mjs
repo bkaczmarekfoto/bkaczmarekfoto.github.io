@@ -22,6 +22,7 @@
  *   --months <n>       ile miesięcy do przodu (domyślnie 12)
  *   --demo             oznacz dane jako przykładowe
  *   --force            zapisz nawet bez zmian
+ *   --debug            wypisz strukturę wydarzeń (typ, daty, powtarzanie) — BEZ tytułów i opisów
  */
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -304,6 +305,32 @@ function buildAvailability(events, todayKey, months) {
   return { timezone: TZ, to: keyOf(horizon), free, hours };
 }
 
+// Podgląd do diagnozy. Tytułów nie wypisujemy — log w publicznym repo jest jawny.
+function debugEvents(events) {
+  const fmt = (dt, withTime = true) => {
+    if (!dt) return '—';
+    if (dt.allDay) return keyOf(dt.day) + ' (cały dzień)';
+    const p = partsIn(dt.ms, TZ);
+    return keyOf(dayNum(p.y, p.m, p.d)) + (withTime ? ` ${hm(dt.ms)}` : '');
+  };
+  console.log('Wydarzenia (czas Europe/Warsaw; przy „inne” bez godzin):');
+  events.forEach((ev, i) => {
+    const marker = MARKER.test(normalize(ev.summary));
+    const type = marker ? 'WOLNE' : 'inne ';
+    const fmtEv = dt => fmt(dt, marker);
+    const rule = ev.rrule ? Object.entries(ev.rrule).map(([k, v]) => `${k}=${v}`).join(';') : '';
+    console.log([
+      `#${i + 1}`, type,
+      `start ${fmtEv(ev.start)}`, `koniec ${fmtEv(ev.end)}`,
+      rule && `powtarzanie ${rule}`,
+      ev.exdate.length && `wyjątki ${ev.exdate.length}`,
+      ev.recurrenceId && `zmiana wystąpienia z ${fmtEv(ev.recurrenceId)}`,
+      ev.status && ev.status !== 'CONFIRMED' && `status ${ev.status}`,
+      ev.transp === 'TRANSPARENT' && 'pokaż jako: dostępny',
+    ].filter(Boolean).join(' | '));
+  });
+}
+
 async function loadIcs() {
   const file = opt('ics');
   if (typeof file === 'string') return readFile(file, 'utf8');
@@ -322,6 +349,7 @@ async function main() {
     : new Intl.DateTimeFormat('en-CA', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 
   const events = parseIcs(await loadIcs());
+  if (opt('debug')) debugEvents(events);
   const data = buildAvailability(events, todayKey, MONTHS);
 
   let previous = null;

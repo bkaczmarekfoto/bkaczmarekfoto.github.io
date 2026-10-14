@@ -12,6 +12,11 @@ on:
   schedule:
     - cron: '17 * * * *'   # co godzinę (GitHub potrafi opóźnić o kilka–kilkanaście minut)
   workflow_dispatch:
+    inputs:
+      debug:
+        description: 'Wypisz strukturę wydarzeń z kalendarza (bez tytułów)'
+        type: boolean
+        default: false
 
 permissions:
   actions: read
@@ -42,7 +47,7 @@ jobs:
           if [ -z "$GCAL_ICS_URL" ]; then
             echo "::warning::Brak sekretu GCAL_ICS_URL — zostają dotychczasowe (przykładowe) dane."
           else
-            node scripts/build-availability.mjs
+            node scripts/build-availability.mjs ${{ inputs.debug && '--debug' || '' }}
           fi
 
       - name: Zapisz zmiany w repozytorium
@@ -56,7 +61,12 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets/data/availability.json
             git commit -m "chore: aktualizacja wolnych terminów"
-            git push
+            # Ktoś mógł wypchnąć commit w trakcie przebiegu — dociągnij i spróbuj ponownie
+            for i in 1 2 3; do
+              git pull --rebase -q origin main && git push && pushed=1 && break
+              sleep $((i * 5))
+            done
+            [ "$pushed" = 1 ] || { echo "::error::Nie udało się zapisać terminów (push odrzucony 3 razy)."; exit 1; }
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
