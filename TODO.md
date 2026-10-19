@@ -9,7 +9,8 @@
 - [ ] Linki: Facebook, Instagram, TikTok (który profil to „z góry”, który „z dołu”?) → stopka + kontakt + JSON-LD `sameAs`
 - [ ] Obszar działania (miasto, dojazd) → teksty + SEO + JSON-LD `areaServed`
 - [ ] Zgody na publikację wizerunku osób ze zdjęć (zwłaszcza dziecko — komunia)
-- [ ] Czy na `fotograf-w-plenerze` jest Bartek? (alt na stronie O mnie zakłada, że tak)
+- [x] Zdjęcie Bartka do „O mnie” (`assets/img/bartek-portret*.webp`, oryginał `dane/bartek-portret.jpg`)
+- [ ] Czy na `fotograf-w-plenerze` (portfolio, „Za kulisami”) jest Bartek?
 - [ ] Dron: czy robi zdjęcia z drona i chce to oferować? (kategoria „Z lotu ptaka”)
 - [ ] Czas i forma oddania zdjęć, dojazd, zaliczka → FAQ / oferta
 - [ ] Czy sesje (narzeczeńska, gender reveal, portret) mają osobny cennik?
