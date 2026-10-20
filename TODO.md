@@ -14,7 +14,7 @@
 - [ ] Dron: czy robi zdjęcia z drona i chce to oferować? (kategoria „Z lotu ptaka”)
 - [ ] Czas i forma oddania zdjęć, dojazd, zaliczka → FAQ / oferta
 - [ ] Czy sesje (narzeczeńska, gender reveal, portret) mają osobny cennik?
-- [ ] Więcej zdjęć do portfolio (20–40), ewentualnie opinie klientów
+- [ ] Więcej zdjęć do portfolio (20–40, jest 18), ewentualnie opinie klientów; oryginały w pełnej rozdzielczości zamiast z WhatsAppa (4 nowe zdjęcia z osiemnastki mają tylko 1280 px)
 - [ ] Akceptacja tekstów i wyglądu
 
 ## Technika
